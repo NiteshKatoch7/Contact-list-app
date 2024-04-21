@@ -9,4 +9,3 @@ Fetch and display a list of users from the JSONPlaceholder API.
 Add a new contact to the list.
 Update an existing contact.
 Delete a contact from the list.
-Installation
