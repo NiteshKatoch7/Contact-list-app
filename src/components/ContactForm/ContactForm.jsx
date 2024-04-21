@@ -6,7 +6,7 @@ import UserContext from '../../context/UserContext';
 export default function ContactForm( {initialUser} ) {
 
     //To Close the Modal Popup
-    const {handleModalPopup, postNewUser, submitBtn, handleEditUser} = useContext(UserContext);
+    const {handleModalPopup, postNewUser, submitBtn, putUserEdit} = useContext(UserContext);
 
     // Using Reference on inputs, so that I can focus on the inputs that fail on validation.
     const emailInputRef = useRef(null);
@@ -96,7 +96,7 @@ export default function ContactForm( {initialUser} ) {
               postNewUser(values);
             }else{
               //Posting the New User data to the api, to add new user to contact list.
-              handleEditUser(values);
+              putUserEdit(values);
             }
 
             // Handling the Modal Popup to close

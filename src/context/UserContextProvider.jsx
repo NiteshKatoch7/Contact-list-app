@@ -12,10 +12,21 @@ export default function UserContextProvider({children}) {
     setIsModalOpen(!isModalOpen);
   }
 
+  // ------------------------------ ADD Handlers ----------------------------------------------------------------------------
+
+  // Handle Event when the Add button is clicked
+  const handleAddContact = () =>{
+    setEditedUser(null)
+    setSubmit(true)
+    handleModalPopup()
+  }
+
   // Handle the Add User Action on State
   const handleAddUser = (user) => {
     setUser([...users, ...user])
   }
+
+  // ------------------------------ Delete Handlers -------------------------------------------------------------------------
 
   // Handle the Delete User Action on State
   const handleDeleteUser = (id) => {
@@ -23,8 +34,10 @@ export default function UserContextProvider({children}) {
     setUser(newUsers)
   }
 
+  // ------------------------------ Edit Handlers ----------------------------------------------------------------------------
+
   // Handing the Modal Popup and Pre-population on fields values on form
-  const editUserResource = (user, values) => {
+  const handleEditContact = (user, values) => {
     setEditedUser(user)
     setSubmit(false)
     setIsModalOpen(true)
@@ -42,6 +55,8 @@ export default function UserContextProvider({children}) {
 
     setUser(updatedUser);
   }
+
+  // ------------------------------ API Operation Handlers --------------------------------------------------------------------
             
   //Posting the New User data to the api, to add new user to contact list.
   const postNewUser = (values) => {
@@ -86,7 +101,7 @@ export default function UserContextProvider({children}) {
   }
 
   // Editing the User data via api, to edit the user details of user in the contact list.
-  const handleEditUser = (values) => {
+  const putUserEdit = (values) => {
     fetch(`https://jsonplaceholder.typicode.com/users/${editedUser.id}`, {
       method: 'PUT',
       body: JSON.stringify({
@@ -133,12 +148,13 @@ export default function UserContextProvider({children}) {
     handleModalPopup, 
     postNewUser,
     deleteUserResource,
-    handleEditUser,
-    editUserResource,
+    putUserEdit,
+    handleEditContact,
     editedUser,
     setEditedUser,
     submitBtn,
-    setSubmit
+    setSubmit,
+    handleAddContact
   };
 
   return (

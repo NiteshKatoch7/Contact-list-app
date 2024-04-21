@@ -7,7 +7,7 @@ import { MdEdit } from "react-icons/md";
 
 export default function List() {
 
-    const {users, handleAddUser, deleteUserResource, editUserResource} = useContext(UserContext);
+    const {users, handleAddUser, deleteUserResource, handleEditContact} = useContext(UserContext);
     const {data, isLoading, error} = useFetchUsers('https://jsonplaceholder.typicode.com/users');
 
     // Assign the fetched user from the api to users state.
@@ -44,7 +44,7 @@ export default function List() {
                     <div className="highlight-circles userId">
                         {index + 1}
                     </div>
-                    <div className="highlight-circles btn edit-btn" onClick={() => editUserResource(user)}>
+                    <div className="highlight-circles btn edit-btn" onClick={() => handleEditContact(user)}>
                         <MdEdit />
                     </div>
                     <div className="highlight-circles btn delete-btn" onClick={() => deleteUserResource(user.id)}>

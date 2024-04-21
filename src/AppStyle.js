@@ -23,8 +23,9 @@ export const ContactHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  align-self: flex-start;
   width: 90%;
-  margin: auto;
+  margin: 0 auto;
   position: relative;
 
   .contactBtn{

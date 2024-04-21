@@ -6,13 +6,7 @@ import { ContactHeader, ListContainer } from './AppStyle';
 import UserContext from './context/UserContext';
 
 export default function App() {
-  const {handleModalPopup, setEditedUser, setSubmit} = useContext(UserContext);
-
-  const handleAddContact = () =>{
-    setEditedUser(null)
-    setSubmit(true)
-    handleModalPopup()
-  }
+  const {handleAddContact} = useContext(UserContext);
 
   return (
     <>
